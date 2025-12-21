@@ -8,5 +8,3 @@ function numberSeparation (){
     console.log(result.trim())
 }
 numberSeparation()
-
-
