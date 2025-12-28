@@ -28,7 +28,7 @@ Cool! Do you want to become Michael Jordan`)
     }else{
       alert(`You are ${age} years old.
 You are living in the capital of Ukraine.
-Your favourite sport is ${sport}`)  
+Your favourite sport is ${sport}.`)  
     }
 }else if(city === 'London'){
     if(sport === 'Football'){
@@ -46,7 +46,7 @@ Cool! Do you want to become Michael Jordan`)
     }else{
     alert(`You are ${age} years old.
 You are living in the capital of Great Britain.
-Your favourite sport is ${sport}`)
+Your favourite sport is ${sport}.`)
     }
 }else if(city === 'Washington'){
     if(sport === 'Football'){
@@ -64,7 +64,7 @@ Cool! Do you want to become Michael Jordan`)
     }else{
     alert(`You are ${age} years old.
 You are living in the capital of USA.
-Your favourite sport is ${sport}`)
+Your favourite sport is ${sport}.`)
     }
 }else if(sport === 'Football'){
     alert(`You are ${age} years old.
@@ -81,5 +81,5 @@ Cool! Do you want to become Michael Jordan`)
     }else{
         alert(`You are ${age} years old.
 You are living in ${city}.
-Your favourite sport is ${sport}`)
+Your favourite sport is ${sport}.`)
     }
