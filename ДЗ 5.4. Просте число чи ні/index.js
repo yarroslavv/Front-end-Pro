@@ -7,4 +7,4 @@ for(i = 2; i < num; i++){
         primeNumber = false;
         break;
     }
-}console.log(primeNumber ? 'Число просте' : 'Число не просте')
+}console.log(primeNumber ? 'Число просте' : 'Число не є простим')
