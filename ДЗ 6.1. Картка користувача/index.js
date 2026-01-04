@@ -1,6 +1,6 @@
 const userCard = {
     name: 'Andriy',
-    age: 30,
+    age: 31,
     city: 'Kyiv',
     showData () {
         for(const key in userCard){
