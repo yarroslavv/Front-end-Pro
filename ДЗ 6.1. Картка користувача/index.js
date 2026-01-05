@@ -3,9 +3,7 @@ const userCard = {
     age: 31,
     city: 'Kyiv',
     showData () {
-        for(const key in userCard){
-        console.log(`Key: ${key}, Value: ${userCard[key]}`)
-    }
+        console.log(`Имя: ${userCard.name}, Возраст: ${userCard.age}, Город проживания: ${userCard.city}`)
 }
 }
 userCard.showData()
