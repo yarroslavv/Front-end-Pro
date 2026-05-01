@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Constructor</title>
+</head>
+<body>
+
+<script>
+    function Student(name, surname, birthYear) {
+        this.name = name;
+        this.surname = surname;
+        this.birthYear = birthYear;
+
+        this.grades = [];
+
+        this.attendance = new Array(25);
+
+        this.getAge = function () {
+            return new Date().getFullYear() - this.birthYear;
+        };
+
+        this.getAverageGrade = function () {
+            if (this.grades.length === 0) return 0;
+
+            let sum = this.grades.reduce((acc, val) => acc + val, 0);
+            return sum / this.grades.length;
+        };
+
+        this._findEmptyIndex = function () {
+            return this.attendance.indexOf(undefined);
+        };
+
+        this.present = function () {
+            let index = this._findEmptyIndex();
+            if (index !== -1) {
+                this.attendance[index] = true;
+            } else {
+                console.log("Більше 25 занять записати неможливо");
+            }
+        };
+
+        this.absent = function () {
+            let index = this._findEmptyIndex();
+            if (index !== -1) {
+                this.attendance[index] = false;
+            } else {
+                console.log("Більше 25 занять записати неможливо");
+            }
+        };
+
+        this.getAttendanceRate = function () {
+            let filled = this.attendance.filter(v => v !== undefined);
+            if (filled.length === 0) return 0;
+
+            let presentCount = filled.filter(v => v === true).length;
+            return presentCount / filled.length;
+        };
+
+        this.summary = function () {
+            let avgGrade = this.getAverageGrade();
+            let attendanceRate = this.getAttendanceRate();
+
+            if (avgGrade > 90 && attendanceRate > 0.9) {
+                return "Молодець!";
+            } else if (avgGrade > 90 || attendanceRate > 0.9) {
+                return "Добре, але можна краще";
+            } else {
+                return "Редиска!";
+            }
+        };
+    }
+
+
+    let student1 = new Student("Іван", "Петренко", 2002);
+    student1.grades = [95, 92, 88, 100];
+
+    for (let i = 0; i < 10; i++) student1.present();
+    for (let i = 0; i < 2; i++) student1.absent();
+
+    console.log(student1.name, student1.getAge());
+    console.log("Середній бал:", student1.getAverageGrade());
+    console.log("Відвідуваність:", student1.getAttendanceRate());
+    console.log("Підсумок:", student1.summary());
+
+
+    let student2 = new Student("Олена", "Коваль", 2000);
+    student2.grades = [60, 70, 65];
+
+    for (let i = 0; i < 5; i++) student2.absent();
+
+    console.log(student2.name, student2.getAge());
+    console.log("Середній бал:", student2.getAverageGrade());
+    console.log("Відвідуваність:", student2.getAttendanceRate());
+    console.log("Підсумок:", student2.summary());
+
+
+    let student3 = new Student("Марія", "Іванова", 2003);
+    student3.grades = [100, 98, 97, 99];
+
+    for (let i = 0; i < 20; i++) student3.present();
+
+    console.log(student3.name, student3.getAge());
+    console.log("Середній бал:", student3.getAverageGrade());
+    console.log("Відвідуваність:", student3.getAttendanceRate());
+    console.log("Підсумок:", student3.summary());
+
+</script>
+
+</body>
+</html>
